@@ -42,7 +42,7 @@ The challenge is to implement a strongly consistent distributed key-value store.
       * `TryLater` if the system chooses to discard this request.
     * Notes:
       * The nodes are allowed to return stale data, but only within the `kKVParams.MAX_REPLICATION_DELAY` time interval.
-      * Responding with `TryLater` means that the system is overloaded, loosely equivalent to "HTTP 500".
+      * Responding with `TryLater` means that the system is overloaded, loosely equivalent to "HTTP 503".
   * Read at version:
     * This is the extension of the simple read request above.
     * Request: the key, the requested version, maximum wait timeout.
