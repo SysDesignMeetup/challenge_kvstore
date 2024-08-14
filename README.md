@@ -162,7 +162,7 @@ For the key-value store problem:
 
 | Name | Value | Description |
 | ---- | :---: | ----------- |
-| kKVParams.N | 7 | The numbers of nodes to use. |
-| kKVParams.MAX_LATENCY | 1s | The upper bound on the acceptable user-perceived latency of responses. |
-| kKVParams.MAX_REPLICATION_DELAY | 0.1s | The maximum replication delay. At most after this much time after receiving the "OK" for a mutation from one node, other nodes should be up to date. |
-| kKVParams.MAX_DISCARDS_RATIO | 0.01 | The system should not respond with `TryLater` to more than 1% of the requests. Measured per node, with a sliding window of length of one second. |
+| kvParams.N | 7 | The numbers of nodes to use. |
+| kvParams.MAX_LATENCY | 1s | The upper bound on the acceptable user-perceived latency of responses. |
+| kvParams.MAX_REPLICATION_DELAY | 0.1s | The maximum replication delay. At most after this much time after receiving the "OK" for a mutation from one node, other nodes should be up to date. |
+| kvParams.MAX_DISCARDS_RATIO | 0.01 | The system should not respond with `TryLater` to more than 1% of the requests. Measured per node, with a sliding window of length of one second. |
