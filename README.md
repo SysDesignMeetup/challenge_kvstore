@@ -8,7 +8,7 @@ The system should fulfill all the functional requirements for the problem. Some 
 
 This distributed system consists of several nodes. Each node receives requests, and each node should respond to each of them. Nodes can also talk to each other.
 
-The nodes are simulated, so that the tests are deterministic and fast to run. The code is implemented in a simplified programming language designed to make the codes focus on the aspects of distributed systems. The simulated machine that runs the code of these nodes is based on cooperative multithreading (async-await-friendly), has with limited amount of fast hot storage ("RAM") and an infinite, albeit slow, cold storage ("disk").
+The nodes are simulated, so that the tests are deterministic and fast to run. The code is implemented in a simplified programming language designed to make the codes focus on the aspects of distributed systems. The simulated machine that runs the code of these nodes is based on cooperative multithreading (async-await-friendly), has limited amount of fast hot storage ("RAM") and an infinite, albeit slow, cold storage ("disk").
 
 For the first version of this challenge, the nodes do not fail, the network connections do not deteriorate, and the number of nodes to use is known up front.
 Submissions have to be implemented as correct code snippets. The domain-specific language for them is described _below_. We provide the ready-to-execute test runner, as well as several reference solutions. They can be tested and evaluated locally, or via Github Action runners.
