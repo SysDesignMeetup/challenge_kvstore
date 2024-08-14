@@ -92,7 +92,7 @@ On the advanced level the game will be about not failing under high load. Some i
 * Delay these broadcasts, so that while the replication delay constraint is still respected, the total amount of network traffic and CPU time needed to process these mutations is lower.
 * Analyze the load of the system to intelligently throttle certain updates; for instance, by keeping the values for the most-frequently-updated keys in RAM only, persisting them to disk only as they become less frequently updated.
 
-At this point of sophisticated the challenge is more of the challenge for test writers than to those implementing the system. Which is exactly what we are planning on, because:
+At this point of sophistication the challenge is more of the challenge for test writers than to those implementing the system. Which is exactly what we are planning on, because:
 
 1. The language itself needs to be polished before we can go live with this SysDesign Challenge,
 2. The test framework (Github Action runners and local executors) needs to be battle-tested,
@@ -111,7 +111,7 @@ For now, we expect the language section to be written as we have the simulator a
 
 One thing I have a strong opinion on: let's reserve any `CamelCase` identifier as a "compile-time" enum value. 
 
-Tuples can be introduced organically `(python, style)`, variant types emerge naturally as Haskell algebraic types (`None | Maybe x`), and and data classes of a small number of fields are effectively dictionaries where the key is a compile-time "enum value" term (`{ TheAnswer: "42", TheQuestion: "why not?" }`).
+Tuples can be introduced organically `(python, style)`, variant types emerge naturally as Haskell algebraic types (`None | Maybe x`), and data classes of a small number of fields are effectively dictionaries where the key is a compile-time "enum value" term (`{ TheAnswer: "42", TheQuestion: "why not?" }`).
 
 When it comes to async-await, I am thinking that for the first version of this pseudo-DSL we can omit the syntactic sugar and live with callbacks.
 
@@ -139,6 +139,7 @@ For the sake of simplicity:
 * A tuple of M elements takes M units of RAM. 
 * An array of N elements takes `max(integer_index_used) - min(integer_index_used) + 1` units of RAM.
 * A dictionary of K values takes `3 * K + sum(sizeof(each_value))` units of RAM.
+* An algebraic type is `1 + sizeof(inner)`, so for `None | Some x` it's either 1 or `1 + sizeof(x)`.
 
 ## Reference Constraints
 
@@ -155,7 +156,7 @@ For the virtual machine:
 | kDiskWriteLatency | 50us-60us | How long until a cold storage ("disk") write request is fulfilled. | 
 | kDiskWriteThroughput | 5us | Add this number of microseconds to write each unit of data to disk. | 
 | kNetworkLatency | 500us | Add this number of microseconds to send a packet to another node, so that the "ping" between them is double this number. |
-| kNetworkThroughput | 20us-24us | Add this number of microseconds to send data over the network to another node. |  
+| kNetworkThroughput | 20us-24us | Add this number of microseconds to send one unit of data over the network to another node. |  
 
 For the key-value store problem:
 
