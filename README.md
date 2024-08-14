@@ -1,4 +1,4 @@
-# SysDesign Meetup Academy ;)
+# SysDesign Meetup Academy
 
 Your challenge, should you accept it, is to implement a distributed system that satisfies a certain set of requirements.
 
