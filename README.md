@@ -8,7 +8,7 @@ The system should fulfill all the functional requirements for the problem. Some 
 
 This distributed system consists of several nodes. Each node receives requests, and each node should respond to each of them. Nodes can also talk to each other.
 
-The nodes are simulated, so that the tests are deterministic and fast to run. The code is implemented in a simplified programming language designed to make the codes focus on the aspects of distributed systems. The simulated machine that runs the code of these nodes is based on cooperative multithreading (async-await-friendly), has limited amount of fast hot storage ("RAM") and an infinite, albeit slow, cold storage ("disk").
+The nodes are simulated, so that the tests are deterministic and fast to run. The code is implemented in a simplified programming language designed to make the code focus on the aspects of distributed systems. The simulated machine that runs the code of these nodes is based on cooperative multithreading (async-await-friendly), has limited amount of fast hot storage ("RAM") and an infinite, albeit slow, cold storage ("disk").
 
 For the first version of this challenge, the nodes do not fail, the network connections do not deteriorate, and the number of nodes to use is known up front.
 Submissions have to be implemented as correct code snippets. The domain-specific language for them is described _below_. We provide the ready-to-execute test runner, as well as several reference solutions. They can be tested and evaluated locally, or via Github Action runners.
@@ -70,7 +70,7 @@ Each response from the system can include the _recommendation_ (stickiness hint)
 
 Clearly, the larger the batch size is, the larger the fraction of requests that will respect stickiness will be. Thus, batch size is another, orthogonal parameter to running the test.
 
-These two orthogonal parameters define the test matix. For each cell in this matrix, the simulated traffic is gradually increased in requests-per-second until the system fails. For each cell in the matrix the maximum sustained load, in requests per second, is recorded as the score.
+These two orthogonal parameters define the test matrix. For each cell in this matrix, the simulated traffic is gradually increased in requests-per-second until the system fails. For each cell in the matrix the maximum sustained load, in requests per second, is recorded as the score.
 
 (Note: We will probably do some binary-searching here, with a threshold, since due to pseudo-deterministic nature of the simulated environment, the passing-to-failing "transition" may not be a fully monotonic function of the simulated QPS.)
 
@@ -96,7 +96,7 @@ At this point of sophistication the challenge is more of the challenge for test 
 
 1. The language itself needs to be polished before we can go live with this SysDesign Challenge,
 2. The test framework (Github Action runners and local executors) needs to be battle-tested,
-3. Having people impement test workloads to "challenge" other submissions is a great exercise by itself, and
+3. Having people implement test workloads to "challenge" other submissions is a great exercise by itself, and
 4. We have no shortage of truly nontrivial problems, since nodes can and will fail, in various ways, and their network connections will too.
 
 ## Language
