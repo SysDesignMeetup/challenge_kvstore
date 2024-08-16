@@ -43,18 +43,6 @@ The challenge is to implement a strongly consistent distributed key-value store.
     * Notes:
       * The nodes are allowed to return stale data, but only within the `kKVParams.MAX_REPLICATION_DELAY` time interval.
       * Responding with `TryLater` means that the system is overloaded, loosely equivalent to "HTTP 503".
-  * Read at version:
-    * This is the extension of the simple read request above.
-    * Request: the key, the requested version, maximum wait timeout.
-    * Response, either:
-      * The value, if the requested version is the current one,
-      * `Outdated`, if there exists a new  value for this key.
-      * `NotAvailableYet`, if the requested version is not yet available on this node.
-    * Notes:
-      * `Outdated` is legal because the requirement is to only keep the latest value per key.
-      * The implementation can always respond with `NotAvailableYet` if the node does not have the data locally.
-      * The requirement for the node to wait for up to the maximum wait timeout and respond back once the data for the requested version becomes available is a non-functional one.
-      * It is (or, rather, _it will be_) graded separately for more bonus points, but consider it an advanced requrement.
       
 ## Test Setup
 
